@@ -1,0 +1,20 @@
+@import './../../style/variables.scss';
+
+.pageNotFound {
+    display: flex;
+    height: calc(100vh - 43px);
+    padding: 50px 30px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.returnButton {
+    background-color: $accent-color;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 10px;
+}
