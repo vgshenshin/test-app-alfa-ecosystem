@@ -1,0 +1,90 @@
+@import "./../../style/variables.scss";
+
+.charCard {
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: $secondary-color;
+    color: #000;
+    height: 250px;
+    width: 200px;
+    flex-direction: column;
+}
+
+.charWrapper {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    border-radius: 6px;
+    height: 60px;
+    width: 60px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 18px;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.description {
+    font-weight: 400;
+    display: block;
+    height: 150px;
+    width: 100%;
+    margin: 0;
+    align-self: flex-start;
+    font-size: 14px;
+}
+
+.buttonsWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.likeButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../icons/heart.svg");
+    padding: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.deleteButton {
+    cursor: pointer;
+    display: flex;
+    background-image: url("../../icons/delete.svg");
+    padding: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-color: $secondary-color;
+}
