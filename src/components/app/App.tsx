@@ -1,5 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
+import store from '../../store/store';
 import MainPage from '../../pages/mainPage/MainPage';
 import SingleCharacterPage from '../../pages/singleCharacterPage/SingleCharacterPage';
 import PageNotFound from '../../pages/404/404';
@@ -23,7 +25,9 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   )
 }
 
