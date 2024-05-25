@@ -1,9 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
+import { IChar } from '../../shared/interfaces/character.interface';
 import { useDeleteCharMutation, useSetFavoriteMutation } from '../../api/apiSlice';
 import './cardCharacter.scss';
 
-const CardCharacter = ({ char: { id, avatar, name, description, favorite } }) => {
+interface CardCharacterProps {
+    char: IChar
+}
+
+const CardCharacter = ({ char: { id, avatar, name, description, favorite } } : CardCharacterProps) => {
     const navigate = useNavigate();
 
     const [setFavorite, { isLoading: isFavoriteLoading }] = useSetFavoriteMutation();

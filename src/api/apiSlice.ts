@@ -1,4 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IChar } from "../shared/interfaces/character.interface";
+
+type TCharactersResp = IChar[];
 
 export const apiSlice = createApi({
     reducerPath: 'api',
@@ -7,14 +10,14 @@ export const apiSlice = createApi({
     }),
     tagTypes: ["Characters"],
     endpoints: builder => ({
-        getCharacters: builder.query({
+        getCharacters: builder.query<TCharactersResp, void>({
             query: () => "/",
             providesTags: () => [{ type: "Characters", id: "charId" }],
         }),
-        getCharById: builder.query({
+        getCharById: builder.query<IChar, string>({
             query: (id) => `/${id}`,
         }),
-        setFavorite: builder.mutation({
+        setFavorite: builder.mutation<IChar, { id: string; favorite: boolean }>({
             query: ({ id, favorite }) => {
                 return {
                     url: `/${id}`,
@@ -24,7 +27,7 @@ export const apiSlice = createApi({
             },
             invalidatesTags: [{ type: "Characters", id: "charId" }],
         }),
-        deleteChar: builder.mutation({
+        deleteChar: builder.mutation<IChar, string>({
             query: (id) => {
                 return {
                     url: `/${id}`,
