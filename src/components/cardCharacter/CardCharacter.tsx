@@ -17,7 +17,7 @@ const CardCharacter = ({ char: { id, avatar, name, description, favorite } } : C
     return (
         <article className="charCard" key={id} onClick={() => navigate(id)}>
             <div className="charWrapper">
-                <img className="avatar" src={avatar} />
+                <img className="avatar" src={avatar} alt={name}/>
                 <h3 className="name">{name}</h3>
             </div>
             <p className="description">

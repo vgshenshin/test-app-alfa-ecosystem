@@ -21,7 +21,7 @@ const MainPage = () => {
             <button
                 className="filterButton"
                 onClick={() => setIsFilter(!isFilter)}
-                style={{ "backgroundColor": isFilter ? "#2e5a70" : null }}
+                style={{ "backgroundColor": isFilter ? "#2e5a70" : '' }}
             ></button>
             <div className="container">
                 {filteredCharacters?.map(char => <CardCharacter char={char} key={char.id} />)}

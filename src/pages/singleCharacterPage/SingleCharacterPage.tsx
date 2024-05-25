@@ -16,13 +16,11 @@ const SingleCharacterPage = () => {
         throw new Error("Персонаж не найден")
     }
 
-    const { avatar, name, description } = character;
-
     return (
         <div className="singleCharacterPage">
-            <img className="image" src={avatar} />
-            <h1>{name}</h1>
-            <p>{description}</p>
+            <img className="image" src={character?.avatar} alt={character?.name}/>
+            <h1>{character?.name}</h1>
+            <p>{character?.description}</p>
             <button className="returnButton" onClick={() => navigate(-1)}>Вернуться</button>
         </div>
     )
