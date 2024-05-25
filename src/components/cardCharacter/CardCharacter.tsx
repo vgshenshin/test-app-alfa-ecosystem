@@ -15,7 +15,11 @@ const CardCharacter = ({ char: { id, avatar, name, description, favorite } }) =>
                 <img className="avatar" src={avatar} />
                 <h3 className="name">{name}</h3>
             </div>
-            <p className="description">{description}</p>
+            <p className="description">
+                {
+                    description.length > 155 ? description.substring(0, 155) + "..." : description
+                }
+            </p>
             <div className="buttonsWrapper">
                 <button
                     onClick={(e) => {
