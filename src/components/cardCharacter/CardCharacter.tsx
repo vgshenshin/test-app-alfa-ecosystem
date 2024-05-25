@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
+import { useDeleteCharMutation, useSetFavoriteMutation } from '../../api/apiSlice';
 import './cardCharacter.scss';
-import { useSetFavoriteMutation } from '../../api/apiSlice';
 
 const CardCharacter = ({ char: { id, avatar, name, description, favorite } }) => {
     const navigate = useNavigate();
 
     const [setFavorite, { isLoading: isFavoriteLoading }] = useSetFavoriteMutation();
+    const [deleteChar, { isLoading: isDeleteLoading }] = useDeleteCharMutation();
 
     return (
         <article className="charCard" key={id} onClick={() => navigate(id)}>
@@ -16,7 +17,14 @@ const CardCharacter = ({ char: { id, avatar, name, description, favorite } }) =>
             </div>
             <p className="description">{description}</p>
             <div className="buttonsWrapper">
-                <button className="deleteButton"></button>
+                <button
+                    onClick={(e) => {
+                        deleteChar(id);
+                        e.stopPropagation();
+                    }}
+                    className="deleteButton"
+                    style={{ filter: isDeleteLoading ? "none" : "opacity(50%)" }}
+                ></button>
                 <button
                     onClick={(e) => {
                         setFavorite({ id, favorite: !favorite });

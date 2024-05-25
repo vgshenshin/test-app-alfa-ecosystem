@@ -24,6 +24,15 @@ export const apiSlice = createApi({
             },
             invalidatesTags: [{ type: "Characters", id: "charId" }],
         }),
+        deleteChar: builder.mutation({
+            query: (id) => {
+                return {
+                    url: `/${id}`,
+                    method: "DELETE",
+                }
+            },
+            invalidatesTags: [{ type: "Characters", id: "charId" }],
+        }),
     })
 });
 
@@ -31,4 +40,5 @@ export const {
     useGetCharactersQuery,
     useGetCharByIdQuery,
     useSetFavoriteMutation,
+    useDeleteCharMutation
 } = apiSlice;
