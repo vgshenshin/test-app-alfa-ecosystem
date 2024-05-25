@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <SingleCharacterPage />,
     errorElement: <PageNotFound />,
   },
-])
+], {basename: "/test-app-alfa-ecosystem"})
 
 
 function App() {
